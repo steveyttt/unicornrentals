@@ -1,0 +1,33 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+
+Description: CF to create an S3 bucket to host lambda functions
+
+Resources:
+  
+  Bucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      BucketName: !Sub "lambda-${AWS::AccountId}"
+      AccessControl: Private
+      
+Outputs:
+  Bucket:
+    Value: !Ref Bucket
+    Export:
+      Name: !Sub "${AWS::StackName}::Bucket"
+
+  BucketDomainName:
+    Value: !GetAtt Bucket.DomainName
+    Export:
+      Name: !Sub "${AWS::StackName}::BucketDomainName"
+
+  BucketArn:
+    Value: !GetAtt Bucket.Arn
+    Export:
+      Name: !Sub "${AWS::StackName}::BucketArn"
+
+  BucketWebsiteURL:
+    Value: !GetAtt Bucket.WebsiteURL
+    Export:
+      Name: !Sub "${AWS::StackName}::BucketWebsiteURL"
