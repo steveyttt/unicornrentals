@@ -4,10 +4,10 @@ deps:
 	go get -u ./...
 
 clean: 
-	rm -rf ./request-unicorn/request-unicorn
+	rm -rf ./request-unicorn/requestunicorn
 	
 build:
-	GOOS=linux GOARCH=amd64 go build -o request-unicorn/request-unicorn ./request-unicorn
+	GOOS=linux GOARCH=amd64 go build -o requestunicorn/requestunicorn ./requestunicorn
 
 run:
-	sam local invoke request-unicorn -e sampleevent.json
+	sam local invoke requestunicorn -e sampleevent.json
