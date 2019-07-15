@@ -16,3 +16,11 @@
 
 scrap/
 website/
+
+# No packaged sam app conofg files
+packaged.yaml
+
+# Remove the binaries created by go
+requestunicorn
+cognito
+s3copy
