@@ -35,3 +35,8 @@ aws cloudformation deploy \
     --parameter-overrides $(cat unicorn-rentals-cognito.properties) \
     --template-file ../cf/cognito.yaml \
     --capabilities CAPABILITY_NAMED_IAM
+
+cd ../sam-app-request-unicorn
+make package
+make deploy
+cd ../deploy
